@@ -1,0 +1,47 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+
+    <style>
+        button{
+        margin: 3px ;
+        padding : 3px;
+        }
+        a{
+        margin : 10px;
+        padding : 20px;
+        }
+        table{
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+<h1>{{object}}</h1>
+<a href="http://127.0.0.1:8000/">HOME</a>
+<a href="http://127.0.0.1:8000/createpost/">create Post</a>
+<table border="1px">
+    <tr>
+        <th>Post id </th>
+        <th>title</th>
+        <th>delete</th>
+        <th>Edit</th>
+    </tr>
+
+
+{% for post in posts %}
+    <tr>
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td><a href="http://127.0.0.1:8000/delete/{{post.id}}">Delete</a></td>
+        <td><a href="http://127.0.0.1:8000/edit/{{post.id}}">Edit</a></td>
+    </tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
