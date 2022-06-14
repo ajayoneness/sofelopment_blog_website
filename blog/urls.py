@@ -13,8 +13,8 @@ urlpatterns = [
     path('cat/<str:aj>',views.cat, name="cat"),
     path('showall/',views.showall,name='showall'),
     path("delete/<int:obj>",views.delete,name='delete'),
-    path("edit/<int:id>",views.edit,name='edit')
-
+    path("edit/<int:id>",views.edit,name='edit'),
+    path('singleshow/<int:post>',views.singleshow,name="singleshow"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

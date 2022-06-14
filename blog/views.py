@@ -8,7 +8,7 @@ def index(request):
     blg=blog_table.objects.all()
     #print(blg.count())
     for i in range (0, len(blg)):
-        blog=[blg[i].id ,blg[i].title,blg[i].des,blg[i].youtube_link,blg[i].date,blg[i].time,blg[i].image,blg[i].subscribe,blg[i].category,blg[i].pub_draft]
+        blog=[blg[i].id ,blg[i].title,blg[i].des[:100]+".........",blg[i].youtube_link,blg[i].date,blg[i].time,blg[i].image,blg[i].subscribe,blg[i].category,blg[i].pub_draft]
         print("blog id : ",blg[i].pub_draft)
         fil= comments.objects.filter(post_id=blg[i].id)
         #print(fil)
@@ -16,23 +16,56 @@ def index(request):
         lis.append(blog)
 
     #comment
+    # if request.POST:
+    #     postno = request.POST['postno']
+    #     cname = request.POST['cname']
+    #     cemail = request.POST['cemail']
+    #     cmob = request.POST['cmob']
+    #     comment = request.POST['cmt']
+    #     timedate= datetime.now()
+    #     print(timedate)
+    #     commentpost = comments(name =cname,email=cemail,mob_no=cmob,comment=comment,post_id_id = int(postno),date_time=str(timedate))
+    #     commentpost.save()
+    #
+    #     post_no = [i.id for i in blg]
+    #     return render(request, 'index.html', {'lis': lis, 'postno': post_no,'cat': category})
+
+    post_no = [ i.id for i in blg]
+    #print(lis)
+    return render(request,'tech-index.html',{'lis':lis,'postno':post_no,'cat': category,'aj':"All Posts"})
+
+
+def singleshow(request,post):
+    lis = []
+    blg = blog_table.objects.filter(id=post)
+    # print(blg.count())
+    for i in range(0, len(blg)):
+        blog = [blg[i].id, blg[i].title, blg[i].des, blg[i].youtube_link, blg[i].date, blg[i].time,
+                blg[i].image, blg[i].subscribe, blg[i].category, blg[i].pub_draft]
+        print("blog id : ", blg[i].pub_draft)
+        fil = comments.objects.filter(post_id=blg[i].id)
+        # print(fil)
+        blog.append(fil)
+        lis.append(blog)
+        lis.reverse()
+
+    # comment
     if request.POST:
-        postno = request.POST['postno']
+        postno = post
         cname = request.POST['cname']
         cemail = request.POST['cemail']
         cmob = request.POST['cmob']
         comment = request.POST['cmt']
-        timedate= datetime.now()
+        timedate = datetime.now()
         print(timedate)
-        commentpost = comments(name =cname,email=cemail,mob_no=cmob,comment=comment,post_id_id = int(postno),date_time=str(timedate))
+        commentpost = comments(name=cname, email=cemail, mob_no=cmob, comment=comment, post_id_id=int(postno),
+                               date_time=str(timedate))
         commentpost.save()
 
-        post_no = [i.id for i in blg]
-        return render(request, 'index.html', {'lis': lis, 'postno': post_no,'cat': category})
+        return render(request, 'tech-single.html', {'lis': lis,  'cat': category, 'aj': "All Posts"})
 
-    post_no = [ i.id for i in blg]
-    #print(lis)
-    return render(request,'index.html',{'lis':lis,'postno':post_no,'cat': category,'aj':"All Posts"})
+
+    return render(request, 'tech-single.html', {'lis': lis, 'cat': category, 'aj': "All Posts"})
 
 
 def adminlogin(request):
@@ -90,9 +123,8 @@ def cat(request,aj):
         blog.append(fil)
         lis.append(blog)
 
-    post_no = [i.id for i in blg]
     # print(lis)
-    return render(request, 'index.html', {'lis': lis, 'postno': post_no, 'cat': category,'aj':aj})
+    return render(request, 'tech-index.html', {'lis': lis,  'cat': category,'aj':aj})
 
 
 def showall(request):
