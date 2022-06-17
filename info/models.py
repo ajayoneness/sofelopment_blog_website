@@ -5,10 +5,10 @@ class blog_table(models.Model):
     des = models.TextField()
     category = models.TextField()
     pub_draft = models.BooleanField()
-    youtube_link = models.URLField(max_length=300)
+    youtube_link = models.URLField(max_length=300,null=True)
     date = models.DateField(null=False , blank=False)
     time = models.TimeField(null=False , blank=False)
-    image = models.ImageField(null=True,blank=True)
+    image = models.ImageField(null=True,blank=True,upload_to='')
     subscribe = models.EmailField(max_length=250,null=True,blank=True)
 
 

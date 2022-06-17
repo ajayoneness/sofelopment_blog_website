@@ -86,7 +86,7 @@ def createPost(request):
         today = datetime.now()
         date = today.strftime("%Y-%m-%d")
         time = today.strftime("%H:%M:%S")
-        image = request.POST['image']
+        image = request.FILES['img']
         blogpost = blog_table(title=title,des=dec,category=cate,pub_draft=True,youtube_link=youtube,date=date,time=time,image=image)
         blogpost.save()
         return redirect('http://127.0.0.1:8000/')
@@ -103,7 +103,7 @@ def draft(request):
         youtube = request.POST['ytub']
         date = request.POST['date']
         time = request.POST['time']
-        image = request.POST['image']
+        image = request.FILES['img']
         blogpost = blog_table(title=title,des=dec,category=cate,pub_draft=False,youtube_link=youtube,date=date,time=time,image=image)
         blogpost.save()
         return HttpResponse('Save in draft')
@@ -139,6 +139,35 @@ def delete(request,obj):
     return render (request,'showall.html',{'posts':posts})
 
 def edit(request,id):
-    data=blog_table.objects.filter(id=id)
+    data=blog_table.objects.get(id=id)
+    fil = blog_table.objects.filter(id=id)
+    print(data)
+    if request.POST:
+        cate = request.POST['category']
+        title = request.POST['title']
+        dec = request.POST['dec']
+        youtube = request.POST['ytub']
+        today = datetime.now()
+        date = today.strftime("%Y-%m-%d")
+        time = today.strftime("%H:%M:%S")
+        try:
+            image = request.FILES['img']
+        except:
+            image = fil[0].image
+            print(image)
+        print(image)
+#Update
+        data.title=title
+        data.des=dec
+        data.category = cate
+        data.Pub_draft = True
+        data.youtube_link = youtube
+        data.date =date
+        data.time = time
+        data.image = image
+        data.save()
+        return showall(request)
+        # blogpost = blog_table(title=title, des=dec, category=cate, pub_draft=True, youtube_link=youtube, date=date,time=time, image=image)
+        # blogpost.save()
 
-    return render (request,'post.html',{'data':data})
+    return render (request,'post.html',{'data':fil,'cat':category})

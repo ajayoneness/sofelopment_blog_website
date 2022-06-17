@@ -1,7 +1,7 @@
 {% extends 'tech-index.html' %}
 
 {% block content %}
-    <form class="form" method="post">
+    <form class="form" method="post" enctype="multipart/form-data">
         {% csrf_token %}
           <div class="imgcontainer">
             <h1>Create Post</h1>
@@ -10,7 +10,7 @@
           <div class="container">
 
               <select name="category" >
-                <option value="{{data.0.category}}">__category__</option>
+                <option value="{{data.0.category}}">{{data.0.category}}</option>
                 {% for c in cat %}
                 <option value="{{c}}">{{c}}</option>
                 {% endfor %}
@@ -24,13 +24,15 @@
             <input type="text" placeholder="Decriptions" value="{{data.0.des}}" name="dec" aria-multiline="true" height="100px" required>
 <br><br>
 
-            <input type="url" value="{{data.0.youtube_link}}" placeholder="Youtube Link" name="ytub" required>
+            <input type="url" value="{{data.0.youtube_link}}" placeholder="Youtube Link" name="ytub" >
 <br><br>
 
-            <input type="file" value="{{data.0.image}}" placeholder="Image" name="image">
+            <input type="file" value="{{data.0.image}}" placeholder="Image" name="img" accept="image/*">
 <br><br>
             <button class="login" type="submit">Publish >> </button>
               <a href="http://127.0.0.1:8000/draft/">Draft</a>
         </form>
+{{data.0.image}}
+
 
 {% endblock %}

@@ -2,14 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f61ea387-37af-444f-844e-ebea8988572e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/info/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/info/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/AdobeStock_359959965_Preview.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/ads-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/footer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/menubg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/videohover.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/showall.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/showall.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tech-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tech-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tech-single.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tech-single.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
